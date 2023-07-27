@@ -1,0 +1,48 @@
+{
+    "name": "mini-ci",
+    "version": "1.0.0",
+    "description": "小程序自动化上传工具",
+    "keywords": [
+        "mini-ci",
+        "upload",
+        "docker",
+        "javascript"
+    ],
+    "main": "src/index.js",
+    "files": [
+        "src",
+        "bin"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "bin": {
+        "mini-ci": "./bin/enter"
+    },
+    "homepage": "https://github.com/Ethan-zjc/npm.git",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Ethan-zjc/npm.git"
+    },
+    "author": "zhangjinchao@kkworld.com",
+    "license": "ISC",
+    "dependencies": {
+        "commander": "^9.4.0",
+        "core-js": "^3.8.1",
+        "dockerode": "^3.3.5",
+        "inquirer": "^8.2.1",
+        "ks-miniprogram-ci": "^1.3.2",
+        "minidev": "^1.8.6",
+        "miniprogram-ci": "^1.8.35",
+        "qrcode": "^1.5.3",
+        "swan-toolkit": "^3.19.2",
+        "tt-ide-cli": "^0.1.18"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ],
+    "publishConfig": {
+        "registry": "https://www.npmjs.com/package/mini-ci"
+    }
+}
