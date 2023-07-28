@@ -1,11 +1,11 @@
 <p align="center">
-   <h1 align="center">@multi/mini-ci</h1>
+   <h1 align="center">multi-mini-ci</h1>
    <p align="center">小程序自动化上传工具（微信、qq、百度、快手、抖音、支付宝、uc、夸克）、生成预览二维码、持续部署集成</p>
 </p>
 
 <p align="center">
     <br>
-    <a href="https://www.npmjs.com/package/@multi/mini-ci">
+    <a href="https://www.npmjs.com/package/multi-mini-ci">
         <img src="https://img.shields.io/badge/npm-%3E%3D7.10.0-limegreen">
     </a>
     <a href="https://nodejs.org">
@@ -19,17 +19,17 @@
 ## 安装
 
 ```javascript
-npm i -g mini-ci
+npm i -g multi-mini-ci
 ```
 
 ## 快速开始
 
 ```javascript
 // 查询工具是否安装成功
-mini-ci --version
+multi-mini-ci --version
 
 // 初始化配置文件
-mini-ci init
+multi-mini-ci init
 ```
 
 ## 项目结构示例
@@ -264,7 +264,7 @@ key文件夹下新建private.alipay**********.key文件, privateKey属性值填�
 ### 用法
 
 ```javascript
-mini-ci build [options]
+multi-mini-ci build [options]
 ```
 
 ### 参数
@@ -281,9 +281,9 @@ mini-ci build [options]
 ### 示例
 
 ```javascript
-mini-ci build --project wx --ver 1.0.0 --environment stag
+multi-mini-ci build --project wx --ver 1.0.0 --environment stag
 或
-mini-ci build -p wx -v 1.0.0 -e stag
+multi-mini-ci build -p wx -v 1.0.0 -e stag
 ```
 
 ### 输出
@@ -293,7 +293,7 @@ mini-ci build -p wx -v 1.0.0 -e stag
 
 ### 注意事项
 
-- mini-ci build 不携带任何参数，将执行本地选择构建模式，携带参数便于持续部署
+- multi-mini-ci build 不携带任何参数，将执行本地选择构建模式，携带参数便于持续部署
 - 抖音平台和阿里平台，上传版本号存在限制，构建时，若传入版本号需符合平台规范，若不传入默认使用平台版本号
 
 
