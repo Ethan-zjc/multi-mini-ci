@@ -1,5 +1,5 @@
 {
-    "name": "@multi/mini-ci",
+    "name": "multi-mini-ci",
     "version": "1.0.0",
     "description": "小程序自动化上传工具",
     "keywords": [
@@ -17,7 +17,7 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "bin": {
-        "mini-ci": "./bin/enter"
+        "multi-mini-ci": "./bin/enter"
     },
     "homepage": "https://github.com/Ethan-zjc/npm/tree/master/mini-ci",
     "repository": {
@@ -43,6 +43,6 @@
         "last 2 versions"
     ],
     "publishConfig": {
-        "registry": "https://www.npmjs.com/package/@multi/mini-ci"
+        "registry": "https://www.npmjs.com/package/multi-mini-ci"
     }
 }
