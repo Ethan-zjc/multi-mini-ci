@@ -5,9 +5,9 @@ const launch = require("../src/index");
 const init = require("../src/init");
 
 program
-    .name("multi-mini-ci")
+    .name("mini-ci")
     .usage(`<command> [option]`)
-    .version(`multi-mini-ci ${package.version}`);
+    .version(`mini-ci ${package.version}`);
 
 program
     .command("init")
