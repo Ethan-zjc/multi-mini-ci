@@ -29,14 +29,8 @@ const getQuestions = (options = []) => {
         },
         {
             type: "input",
-            name: "version",
-            message: "请输入版本号（必填，示例：1.0.0）:",
-            validate: (input) => {
-                if (!input) {
-                    return '请输入版本号';
-                }
-                return true;
-            },
+            name: "originVersion",
+            message: "请输入上传版本号（默认：1.0.0）:",
         },
     ];
 };

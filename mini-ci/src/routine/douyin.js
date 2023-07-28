@@ -1,6 +1,5 @@
 const path = require("path");
 const tma = require("tt-ide-cli");
-const { getDescData } = require("../utils/index");
 
 tma.setConfig({
     allowReportEvent: "no",
@@ -8,10 +7,8 @@ tma.setConfig({
 
 const appUpload = async (filePath, info = {}) => {
     return new Promise(async (resolve) => {
-        const version = info.version;
         const env = info.environment;
-        const desc = await getDescData(version, env);
-        await tma.upload({
+        const options = {
             project: {
                 path: filePath,
             },
@@ -21,10 +18,15 @@ const appUpload = async (filePath, info = {}) => {
                     small: true,
                 },
             },
-            version,
-            changeLog: desc,
+            changeLog: env,
             needUploadSourcemap: true,
-        });
+        };
+        if (info.originVersion) {
+            Object.assign(options, {
+                version: info.originVersion,
+            });
+        }
+        await tma.upload(options);
         resolve();
     })
 };
@@ -57,7 +59,7 @@ const appPreview = async (filePath, outputFile) => {
 };
 
 const appCheck = (config) => {
-    return new Promise(async (resolve,reject) => {
+    return new Promise(async (resolve, reject) => {
         await tma.loginByEmail({
             email: config.email,
             password: config.password,
@@ -73,9 +75,9 @@ const appCheck = (config) => {
 
 module.exports = {
     render: async (value) => {
-        const { appId, entry, output, appToken, platform } = value;
+        const { entry, output, appToken, projectId } = value;
         const projectFile = path.join(process.cwd(), `./${entry}`);
-        const outputFile = path.join(process.cwd(),`./${output}/${platform}_${appId}.png`)
+        const outputFile = path.join(process.cwd(), `./${output}/${projectId}.png`)
         const keyData = Buffer.from(appToken, "base64").toString("utf-8");
         await appCheck(JSON.parse(keyData));
         await appUpload(projectFile, value);

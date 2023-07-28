@@ -29,7 +29,7 @@ const appUpload = async (project, info = {}) => {
             project,
             version,
             desc,
-            onProgressUpdate: () => {},
+            onProgressUpdate: () => { },
         });
         if (uploadResult && uploadResult.subPackageInfo.length > 0) {
             console.log("success:End of build");
@@ -44,7 +44,7 @@ const appPreview = async (project, outputFile) => {
         project,
         qrcodeFormat: "image",
         qrcodeOutputDest: outputFile,
-        onProgressUpdate: () => {},
+        onProgressUpdate: () => { },
     });
 };
 
@@ -63,11 +63,11 @@ const appCheck = (keyFile) => {
 
 module.exports = {
     render: async (value) => {
-        const { appId, entry, output, keyPath, platform } = value;
+        const { appId, entry, output, keyPath, projectId } = value;
         const keyFile = path.join(process.cwd(), `./${keyPath}`);
         await appCheck(keyFile);
         const projectFile = path.join(process.cwd(), `./${entry}`);
-        const outputFile = path.join(process.cwd(),`./${output}/${platform}_${appId}.png`)
+        const outputFile = path.join(process.cwd(), `./${output}/${projectId}.png`)
         const project = await setProject(appId, projectFile, keyFile);
         await appUpload(project, value);
         appPreview(project, outputFile);

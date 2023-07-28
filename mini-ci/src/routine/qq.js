@@ -4,14 +4,14 @@ const Docker = require("dockerode");
 const docker = new Docker();
 
 const checkQrcodeOutput = (value) => {
-    const { output, entry, appId, platform } = value;
+    const { output, entry, projectId } = value;
     const outputFile = path.join(process.cwd(), `./${output}`);
     const project = path.join(process.cwd(), `./${entry}`);
     if (!fs.existsSync(outputFile)) {
         fs.mkdirSync(outputFile);
     }
     if (fs.existsSync(`${project}/qrcode.png`)) {
-        fs.renameSync(`${project}/qrcode.png`, `${outputFile}/${platform}_${appId}.png`);
+        fs.renameSync(`${project}/qrcode.png`, `${outputFile}/${projectId}.png`);
     }
 }
 
@@ -23,7 +23,7 @@ const runContainer = async (value) => {
         environment,
         version,
         experience = true,
-        buildUser = "机器人",
+        buildUser = "robot",
         firstPage = "",
     } = value;
     const envVariables = {

@@ -5,11 +5,11 @@ const getDefaultConfig = () => {
         appToken: "",
         keyPath: "",
         entry: "/",
-        output: "/dist",
         platform: "",
         source: "",
-        projectId: 1,
+        projectId: 'ci',
         version: "1.0.0",
+        originVersion: "",
         environment: "stag",
     }
 };

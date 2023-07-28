@@ -12,31 +12,41 @@ const collect = async (modules) => {
 
 // 命令行参数解析
 const analysis = (modules, value) => {
-	const { project = "", ver: version = "", environment = "stag" } = value;
+	const { project = "", ver: originVersion = "", environment = "stag" } = value;
 	const find = modules.find((item) => item.projectId == project);
-	const options = {
-		environment
-	};
-	if (version) {
-		Object.assign(options, { version })
-	}
-	action(find, options);
+	action(find, {
+		environment,
+		originVersion
+	});
 }
 
 // 执行构建脚本
-const action = (row, options = {}) => {
-	if (row) {
-		const config = Object.assign({}, getDefaultConfig(), row, options);
-		const routineName = config.source || config.platform;
-		const platformFile = path.join(__dirname, `./routine/${routineName}.js`);
-		if (fs.existsSync(platformFile)) {
-			const { render } = require(platformFile);
-			render(config);
-		} else {
-			console.error("error: Build platform not supported");
-		}
-	} else {
+const action = (item, options = {}) => {
+	if (!item) {
 		console.error("error: Target does not exist")
+		return false;
+	}
+	const defOptions = getDefaultConfig();
+	const moreOptions = {
+		output: '/ci_dist',
+	};
+	if (options.originVersion) {
+		Object.assign(moreOptions, {
+			version: options.originVersion,
+		})
+	}
+	const config = Object.assign({}, defOptions, item, options, moreOptions);
+	const routineName = config.source || config.platform;
+	const platformFile = path.join(__dirname, `./routine/${routineName}.js`);
+	const outputFile = path.join(process.cwd(), `./${config.output}`)
+	if (!fs.existsSync(outputFile)) {
+		fs.mkdirSync(outputFile);
+	}
+	if (fs.existsSync(platformFile)) {
+		const { render } = require(platformFile);
+		render(config);
+	} else {
+		console.error("error: Build platform not supported");
 	}
 }
 

@@ -19,7 +19,7 @@
     "bin": {
         "mini-ci": "./bin/enter"
     },
-    "homepage": "https://github.com/Ethan-zjc/npm.git",
+    "homepage": "https://github.com/Ethan-zjc/npm/tree/master/mini-ci",
     "repository": {
         "type": "git",
         "url": "https://github.com/Ethan-zjc/npm.git"

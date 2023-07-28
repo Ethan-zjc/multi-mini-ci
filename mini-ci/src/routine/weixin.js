@@ -55,9 +55,9 @@ const appPreview = async (project, outputFile) => {
 
 module.exports = {
     render: async (value) => {
-        const { entry, appId, keyPath, output, platform } = value;
+        const { entry, appId, keyPath, output, projectId } = value;
         const keyFile = path.join(process.cwd(), `./${keyPath}`);
-        const outputFile = path.join(process.cwd(),`./${output}/${platform}_${appId}.png`)
+        const outputFile = path.join(process.cwd(), `./${output}/${projectId}.png`)
         const projectFile = path.join(process.cwd(), `./${entry}`);
         const project = await setProject(appId, projectFile, keyFile);
         await appUpload(project, value);

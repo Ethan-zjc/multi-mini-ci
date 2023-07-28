@@ -35,19 +35,17 @@ const appUpload = async (value) => {
             remark,
             environment,
             version,
-            platform,
-            appId,
+            projectId,
             minSwanVersion = "3.310.35",
         } = value;
         const outputFile = path.join(process.cwd(), `./${output}`);
         const projectFile = path.join(process.cwd(), `./${entry}`);
-        const execString = `swan upload -p ${projectFile} --token ${appToken} --release-version ${version} --min-swan-version ${minSwanVersion} -d ${
-            remark || environment
-        } --verbose --json`;
+        const execString = `npx swan upload -p ${projectFile} --token ${appToken} --release-version ${version} --min-swan-version ${minSwanVersion} -d ${remark || environment
+            } --verbose --json`;
         let result = await executeCommand(execString);
         if (result) {
             const url = result;
-            const filePath = `${outputFile}/${platform}_${appId}.png`;
+            const filePath = `${outputFile}/${projectId}.png`;
             if (!fs.existsSync(outputFile)) {
                 fs.mkdirSync(outputFile);
             }

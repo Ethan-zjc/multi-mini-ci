@@ -7,20 +7,24 @@ const appUpload = async (filePath, info = {}) => {
     const {
         appId,
         platform,
-        version
     } = info;
     const versionString = await minidev.app.getUploadedVersion({
         appId: appId,
         clientType: platform,
     });
-    await minidev.upload({
+    const options = {
         appId: appId,
         project: filePath,
         clientType: platform,
         deleteVersion: versionString,
-        // version: version,
-    }, {
-        onLog: () => {},
+    }
+    if (info.originVersion) {
+        Object.assign(options, {
+            version: info.originVersion,
+        });
+    }
+    await minidev.upload(options, {
+        onLog: () => { },
     });
 };
 
@@ -35,7 +39,7 @@ const appPreview = async (filePath, outputFile, info = {}) => {
         clientType: platform,
     });
     if (qrcodeUrl) {
-        request.get(qrcodeUrl, (err,res) => {
+        request.get(qrcodeUrl, (err, res) => {
             const url = res.request.uri.href;
             request(url).pipe(fs.createWriteStream(outputFile));
         });
@@ -55,9 +59,9 @@ const appCheck = (keyFile, toolId) => {
 
 module.exports = {
     render: async (value) => {
-        const { appId, entry, keyPath, appToken, output, platform } = value;
+        const { entry, keyPath, appToken, output, projectId } = value;
         const keyFile = path.join(process.cwd(), `./${keyPath}`);
-        const outputFile = path.join(process.cwd(),`./${output}/${platform}_${appId}.png`)
+        const outputFile = path.join(process.cwd(), `./${output}/${projectId}.png`)
         await appCheck(keyFile, appToken);
         const projectFile = path.join(process.cwd(), `./${entry}`);
         await appUpload(projectFile, value);
