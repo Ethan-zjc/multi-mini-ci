@@ -1,6 +1,6 @@
 {
     "name": "mini-ci",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "description": "小程序自动化上传工具",
     "keywords": [
         "mini-ci",
