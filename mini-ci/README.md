@@ -1,13 +1,25 @@
-# mini-ci
+<p align="center">
+   <h1 align="center">@multi/mini-ci</h1>
+   <p align="center">小程序自动化上传工具（微信、qq、百度、快手、抖音、支付宝、uc、夸克）</p>
+</p>
 
-## 名称
-
-小程序自动化上传工具（微信、qq、百度、快手、抖音、支付宝、uc、夸克）
+<p align="center">
+    <br>
+    <a href="https://www.npmjs.com/package/@multi/mini-ci">
+        <img src="https://img.shields.io/badge/npm-%3E%3D7.10.0-limegreen">
+    </a>
+    <a href="https://nodejs.org">
+        <img src="https://img.shields.io/badge/node-%3E%3D16.0.0-limegreen">
+    </a>
+    <a href="LICENSE">
+        <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
+    </a>
+</p>
 
 ## 安装
 
 ```javascript
-npm i -g mini-ci
+npm i -g @multi/mini-ci
 ```
 
 ## 快速开始

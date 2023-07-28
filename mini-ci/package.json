@@ -1,5 +1,5 @@
 {
-    "name": "mini-ci",
+    "name": "@multi/mini-ci",
     "version": "1.0.0",
     "description": "小程序自动化上传工具",
     "keywords": [
@@ -43,6 +43,6 @@
         "last 2 versions"
     ],
     "publishConfig": {
-        "registry": "https://www.npmjs.com/package/mini-ci"
+        "registry": "https://www.npmjs.com/package/@multi/mini-ci"
     }
 }
