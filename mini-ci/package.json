@@ -25,7 +25,7 @@
         "url": "https://github.com/Ethan-zjc/npm.git"
     },
     "author": "zhangjinchao@kkworld.com",
-    "license": "ISC",
+    "license": "MIT",
     "dependencies": {
         "commander": "^9.4.0",
         "core-js": "^3.8.1",
