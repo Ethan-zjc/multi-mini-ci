@@ -11,7 +11,7 @@
     <a href="https://nodejs.org">
         <img src="https://img.shields.io/badge/node-%3E%3D16.0.0-limegreen">
     </a>
-    <a href="LICENSE">
+    <a href="./LICENSE">
         <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
     </a>
 </p>
@@ -299,4 +299,4 @@ multi-mini-ci build -p wx -v 1.0.0 -e stag
 
 ## LICENSE
 
-[MIT](LICENSE)
+[MIT](./LICENSE)
