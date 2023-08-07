@@ -1,4 +1,5 @@
 // 使用全局依赖上传
+const { execSync } = require('child_process');
 const path = require("path");
 const fs = require("fs");
 const swan = require("swan-toolkit");
@@ -40,7 +41,10 @@ const appUpload = async (value) => {
         } = value;
         const outputFile = path.join(process.cwd(), `./${output}`);
         const projectFile = path.join(process.cwd(), `./${entry}`);
-        const execString = `npx swan upload -p ${projectFile} --token ${appToken} --release-version ${version} --min-swan-version ${minSwanVersion} -d ${remark || environment
+        const globalBinPath = execSync('npm root -g').toString().trim();
+        const globalDepPath = path.join(globalBinPath, 'multi-mini-ci/node_modules/.bin/swan');
+
+        const execString = `${globalDepPath} upload -p ${projectFile} --token ${appToken} --release-version ${version} --min-swan-version ${minSwanVersion} -d ${remark || environment
             } --verbose --json`;
         let result = await executeCommand(execString);
         if (result) {
