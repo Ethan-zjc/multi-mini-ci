@@ -1,6 +1,6 @@
 {
     "name": "multi-mini-ci",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "小程序自动化上传工具",
     "keywords": [
         "mini-ci",
@@ -19,10 +19,10 @@
     "bin": {
         "multi-mini-ci": "./bin/enter"
     },
-    "homepage": "https://github.com/Ethan-zjc/npm/tree/master/mini-ci",
+    "homepage": "https://github.com/Ethan-zjc/multi-mini-ci",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Ethan-zjc/npm.git"
+        "url": "git@github.com:Ethan-zjc/multi-mini-ci.git"
     },
     "author": "zhangjinchao@kkworld.com",
     "license": "MIT",
