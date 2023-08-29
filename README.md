@@ -56,6 +56,10 @@ multi-mini-ci init
 └── README.md
 ```
 
+## 平台上传示例（微信）
+
+<img src='https://festatic.v3mh.com/static-resource/img/multi-mini-ci/ci-wx-upload.png' alt='微信上传示例' />
+
 ## 配置文件说明
 
 ### 微信
@@ -341,9 +345,9 @@ mini-ci notify -p wx -v 1.0.0 -e stag -q https://www.xxx.com/qrcode.png
 
 ### 消息展示
 
-![钉钉消息示例](https://festatic.v3mh.com/static-resource/img/multi-mini-ci/dingtalk.png)
+<img src='https://festatic.v3mh.com/static-resource/img/multi-mini-ci/dingtalk.png' width='200' alt='钉钉消息示例' />
 
-![企业微信消息示例](https://festatic.v3mh.com/static-resource/img/multi-mini-ci/wecom.png)
+<img src='https://festatic.v3mh.com/static-resource/img/multi-mini-ci/wecom.png' width='200' alt='企业微信消息示例' />
 
 ### 注意事项
 
