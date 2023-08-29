@@ -296,6 +296,60 @@ multi-mini-ci build -p wx -v 1.0.0 -e stag
 - multi-mini-ci build 不携带任何参数，将执行本地选择构建模式，携带参数便于持续部署
 - 抖音平台和阿里平台，上传版本号存在限制，构建时，若传入版本号需符合平台规范，若不传入默认使用平台版本号
 
+## 消息通知
+
+### 配置
+
+```javascript
+// ci.config.js
+module.exports = {
+  notify: {
+    enable: true, // 是否开启消息通知
+    dingtalkToken: "", // 钉钉token (获取方式可参考下方注意事项)
+    wecomToken: "", // 企业微信token (获取方式可参考下方注意事项)
+  },
+};
+```
+
+### 用法
+
+```javascript
+mini-ci notify [options]
+```
+
+### 参数
+
+1. `--project`, `-p` (类型: number | string, 默认值: 1):
+   指定项目唯一标识。与配置文件 ci.config.js 中 projectId 映射
+
+2. `--ver`, `-v` (类型: string, 默认值: 1.0.0):
+   消息通知列表中版本号。如果未指定，将使用默认版本。
+
+3. `--environment`, `-e` (类型: string, 默认值: stag):
+   消息通知列表中项目环境。如果未指定，将使用默认环境。
+
+4. `--qrcode`, `-q` (类型: string):
+   二维码图片链接。如果未指定，消息通知列表将不显示二维码。
+
+### 示例
+
+```javascript
+mini-ci notify --project wx --ver 1.0.0 --environment stag qrcode https://www.xxx.com/qrcode.png
+或
+mini-ci notify -p wx -v 1.0.0 -e stag -q https://www.xxx.com/qrcode.png
+```
+
+### 消息展示
+
+![钉钉消息示例](https://festatic.v3mh.com/static-resource/img/multi-mini-ci/dingtalk.png)
+
+![企业微信消息示例](https://festatic.v3mh.com/static-resource/img/multi-mini-ci/wecom.png)
+
+### 注意事项
+
+- 钉钉 token 获取方式 [token 获取](https://open.dingtalk.com/document/isvapp/custom-bot-access-send-message)，参考文档中步骤一，获取到 webhook 地址后，将 webhook 地址 access_token 字段对应部分填入配置文件即可。
+- 企业微信 token 获取方式 [token 获取](https://open.work.weixin.qq.com/help2/pc/14931?is_tencent=0&version=4.0.12.6015&platform=win)，在机器人信息页获取到 Webhook 地址后，将 webhook 地址 key 字段对应部分填入配置文件即可。
+- 企业微信平台，消息通知中不支持直接显示图片信息，因此二维码将以链接形式展示
 
 ## LICENSE
 

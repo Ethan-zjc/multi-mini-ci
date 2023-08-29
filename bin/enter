@@ -1,13 +1,14 @@
 #! /usr/bin/env node
 const program = require("commander");
 const package = require("../package.json");
-const launch = require("../src/index");
+const build = require("../src/index");
 const init = require("../src/init");
+const notify = require("../src/notify");
 
 program
-    .name("multi-mini-ci")
+    .name("mini-ci")
     .usage(`<command> [option]`)
-    .version(`multi-mini-ci ${package.version}`);
+    .version(`mini-ci ${package.version}`);
 
 program
     .command("init")
@@ -23,7 +24,18 @@ program
     .option("-v, --ver <key> <value>", "set build version")
     .option("-e, --environment <key> <value>", "set build environment")
     .action((res) => {
-        launch(res);
+        build(res);
+    });
+
+program
+    .command("notify")
+    .description("Notify an application")
+    .option("-p, --project <key> <value>", "set build project ID")
+    .option("-v, --ver <key> <value>", "set build version")
+    .option("-e, --environment <key> <value>", "set build environment")
+    .option("-q, --qrcode <key> <value>", "set build qrcode url")
+    .action((res) => {
+        notify(res);
     });
 
 program.parse(process.argv);

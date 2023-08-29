@@ -42,10 +42,9 @@ const appUpload = async (value) => {
         const outputFile = path.join(process.cwd(), `./${output}`);
         const projectFile = path.join(process.cwd(), `./${entry}`);
         const globalBinPath = execSync('npm root -g').toString().trim();
-        const globalDepPath = path.join(globalBinPath, 'multi-mini-ci/node_modules/.bin/swan');
-
-        const execString = `${globalDepPath} upload -p ${projectFile} --token ${appToken} --release-version ${version} --min-swan-version ${minSwanVersion} -d ${remark || environment
-            } --verbose --json`;
+        const globalDepPath = path.join(globalBinPath, '@kk/mini-ci/node_modules/.bin/swan');
+        
+        const execString = `${globalDepPath} upload -p ${projectFile} --token ${appToken} --release-version ${version} --min-swan-version ${minSwanVersion} -d ${remark || environment } --verbose --json`;
         let result = await executeCommand(execString);
         if (result) {
             const url = result;
