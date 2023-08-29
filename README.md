@@ -16,6 +16,10 @@
     </a>
 </p>
 
+## 平台上传示例（微信）
+
+<img src='https://festatic.v3mh.com/static-resource/img/multi-mini-ci/ci-wx-upload.png' alt='微信上传示例' />
+
 ## 安装
 
 ```javascript
@@ -55,10 +59,6 @@ multi-mini-ci init
 |
 └── README.md
 ```
-
-## 平台上传示例（微信）
-
-<img src='https://festatic.v3mh.com/static-resource/img/multi-mini-ci/ci-wx-upload.png' alt='微信上传示例' />
 
 ## 配置文件说明
 
