@@ -11,8 +11,10 @@ const executeCommand = (command) => {
         const childProcess = spawn(command, { shell: true });
 
         childProcess.stdout.on("data", (data) => {
-            const schemeUrl = JSON.parse(data).schemeUrl;
-            resolve(schemeUrl);
+            if (data && data.toString().includes('schemeUrl')) {
+                const schemeUrl = JSON.parse(data).schemeUrl;
+                resolve(schemeUrl);
+            }
         });
 
         childProcess.stderr.on("data", (data) => {
