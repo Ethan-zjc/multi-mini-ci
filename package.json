@@ -35,7 +35,7 @@
         "minidev": "^1.8.6",
         "miniprogram-ci": "^1.8.35",
         "qrcode": "^1.5.3",
-        "swan-toolkit": "^3.19.2",
+        "swan-toolkit": "^3.22.1",
         "tt-ide-cli": "^0.1.18"
     },
     "browserslist": [
