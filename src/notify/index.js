@@ -4,12 +4,14 @@ const { wecomMsg, dingtalkMsg } = require("./send");
 
 const analysis = (options) => {
     const { modules, value, notify } = options;
-    const { project = "", ver: originVersion = "", environment = "stag", qrcode = "" } = value;
+    const { project = "", ver: originVersion = "", environment = "stag", qrcode = "", operator = "机器人", file = "" } = value;
     const { dingtalkToken, wecomToken } = notify;
     const params = modules.find((item) => item.projectId == project);
     const config = Object.assign({}, params, {
         environment,
         qrcode,
+        operator,
+        file,
     });
     if (originVersion) {
         Object.assign(config, {

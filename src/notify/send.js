@@ -29,8 +29,9 @@ const getMarkdown = (type, options) => {
         projectId = "weixin",
         version = "1.0.0",
         environment = "stag",
-        operate = "机器人",
+        operator = "机器人",
         qrcode = "",
+        file = "",
     } = options;
     let markdownText = `### ${appName}`;
     const updateTime = formatDate(new Date(), "yyyy-MM-dd HH:mm:ss");
@@ -45,7 +46,7 @@ const getMarkdown = (type, options) => {
         value: `v${version}`
     }, {
         label: '发起人:',
-        value: operate
+        value: operator
     }, {
         label: '更新时间:',
         value: updateTime
@@ -54,11 +55,14 @@ const getMarkdown = (type, options) => {
         const label = type == 'dingtalk' ? `#### ${item.label}` : item.label;
         markdownText += `\n${label} ${item.value}`;
     })
+    if (file) {
+        markdownText += `\n下载地址: [下载链接](${file})`;
+    }
     if (qrcode) {
         if (type == 'wecom') {
-            markdownText += `\n [二维码链接](${qrcode})`;
+            markdownText += `\n二维码: [二维码链接](${qrcode})`;
         } else {
-            markdownText += `\n ![qrcode](${qrcode})`;
+            markdownText += `\n\r ![qrcode](${qrcode})`;
         }
     }
     return markdownText;

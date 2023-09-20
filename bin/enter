@@ -34,6 +34,8 @@ program
     .option("-v, --ver <key> <value>", "set build version")
     .option("-e, --environment <key> <value>", "set build environment")
     .option("-q, --qrcode <key> <value>", "set build qrcode url")
+    .option("-o, --operator <key> <value>", "set build operator")
+    .option("-f, --file <key> <value>", "set build file url")
     .action((res) => {
         notify(res);
     });

@@ -332,8 +332,14 @@ mini-ci notify [options]
 3. `--environment`, `-e` (类型: string, 默认值: stag):
    消息通知列表中项目环境。如果未指定，将使用默认环境。
 
-4. `--qrcode`, `-q` (类型: string):
+4. `--operator`, `-o` (类型: string):
+   操作人名称。如果未指定，默认机器人。
+
+5. `--qrcode`, `-q` (类型: string):
    二维码图片链接。如果未指定，消息通知列表将不显示二维码。
+
+6. `--file`, `-f` (类型: string):
+   文件链接。如果未指定，消息通知列表将不显示。
 
 ### 示例
 
